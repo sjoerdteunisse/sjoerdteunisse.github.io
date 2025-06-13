@@ -117,6 +117,7 @@ mcp_components:
   prompts: "User-controlled templates for optimal interactions"
 ```
 
+
 ## Getting Started with C# Dynamic MCP Implementation
 
 Let's build a practical MCP server in C#. First, install the required package:
@@ -125,7 +126,24 @@ Let's build a practical MCP server in C#. First, install the required package:
 <PackageReference Include="ModelContextProtocol" Version="0.1.0-preview.11" />
 ```
 
-## Building the Core Tool Handler
+## First, dynamic? Universal REST-to-MCP Translation
+
+The dynamic handler functions as a **universal translator** that transforms any REST API into MCP-compliant tools without requiring custom code for each integration. The process operates as follows:
+
+**Input**: MCP tool request with parameters → **Output**: Standardized MCP response
+
+The handler analyzes each tool's configuration and automatically determines the appropriate HTTP pattern:
+
+- **Parameterized URLs** (`/api/weather/{city}`) → Extracts the `city` parameter from MCP arguments and constructs the URL
+- **Query Parameters** → Converts remaining MCP arguments into URL query strings  
+- **POST Payloads** → Serializes MCP arguments as JSON request bodies
+- **Simple GET Requests** → Executes direct API calls for parameter-less tools
+
+**The Result**: Any REST endpoint becomes immediately available to MCP-compatible AI applications. Whether interfacing with weather APIs, database queries, or complex enterprise services, the handler seamlessly converts REST responses back into standardized MCP format that AI agents can interpret and utilize.
+
+This approach demonstrates simply how to **register new tools within seconds** rather than investing hours in writing custom integration code. **Important note: authentication is not taken into account in this implementation**. The AI ecosystem gains universal access to your APIs while you maintain complete control over how they are exposed.
+
+## Building the Core Dynamic Tool Handler
 
 Find the code here: [DynamicMCP](https://github.com/sjoerdteunisse/DynamicMCP)
 
