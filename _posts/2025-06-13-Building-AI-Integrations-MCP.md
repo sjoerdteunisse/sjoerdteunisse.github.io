@@ -1,6 +1,6 @@
 ---
 title: "Building AI Integrations with Model Context Protocol (MCP) in C#"
-date: 2025-06-14 12:00:00 +0000
+date: 2025-06-13 17:00:00 +0000
 categories: [AI, C#, MCP, LLMs]
 tags: [mcp, model-context-protocol, csharp, dotnet, ai-agents]
 description: Learn how to implement the Model Context Protocol (MCP) in C# to create standardized AI integrations. Build servers, clients, and tools that work seamlessly across different AI applications.
