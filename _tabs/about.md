@@ -4,8 +4,6 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-# About Sjoerd Teunisse
-
 Welcome! I'm **Sjoerd Teunisse**, a Senior Full Stack & Data Science Engineer passionate about **automation**, **artificial intelligence**, and **pushing the boundaries of what's possible**.
 
 ## Who Am I?
