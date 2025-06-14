@@ -1,9 +1,9 @@
 ---
 title: Hello World - Welcome to My Digital Journey
-date: 2025-06-13 10:00:00 +0000
+date: 2025-06-14 09:00:00 +0000
 categories: [Blogging, Personal]
 tags: [hello-world, introduction, welcome, first-post]
-pin: true
+pin: false
 description: Welcome to my blog! This is my first post where I introduce myself, share my vision for this space.
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: "Rest to MCP - Creating AI Integrations with Model Context Protocol (MCP) in C#"
-date: 2025-06-13 12:00:00 +0000
+title: Rest to MCP - Creating AI Integrations with Model Context Protocol (MCP) in C#
+date: 2025-06-14 10:00:00 +0000
 categories: [AI, C#, LLMs]
 tags: [mcp, model-context-protocol, csharp, dotnet, ai-agents]
 description: Learn how to implement a simple conversion of Dynamic Rest to Model Context Protocol (MCP) in C# to create standardized AI integrations. Build servers, clients, and tools that work seamlessly across different AI applications.
