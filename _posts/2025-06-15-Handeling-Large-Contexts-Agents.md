@@ -5,7 +5,7 @@ categories: [AI, Agents, Efficiency]
 tags: [context-limits, json-handling, chain-of-agents]
 description: Discover how to build efficient AI agents that handle large contexts and structured data effectively. Learn about optimizing for accuracy and cost, overcoming context limits with the Chain of Agents framework, and mastering JSON handling for seamless tool integration.
 math: false
-_tabsmermaid: true
+mermaid: true
 ---
 
 In the rapidly evolving field of artificial intelligence, creating efficient agents that can process vast amounts of data, manage complex tasks, and interact seamlessly with structured formats like JSON is more crucial than ever. As AI agents become integral to applications ranging from web automation to data analysis, developers face challenges in optimizing performance, managing context size limitations, and ensuring smooth data handling. This blog post explores recent advancements in three key areas: building efficient AI agents, overcoming context size limits with the Chain of Agents (CoA) framework, and mastering JSON handling for effective tool integration. By the end, you'll have a solid understanding of how to create AI agents that are both powerful and practical for real-world use.
