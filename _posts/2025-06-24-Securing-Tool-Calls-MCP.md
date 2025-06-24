@@ -57,7 +57,7 @@ graph TD
 - **Resource Enumeration**: Using MCP discovery to map available attack surfaces
 - **Session Hijacking**: Intercepting or manipulating MCP communication channels
 
-> Traditional security measures alone are insufficient. MCP implementations need comprehensive security frameworks embedded at every layer to resist manipulation attempts. {: .prompt-warning }
+> Traditional security measures alone are insufficient. MCP implementations need comprehensive security frameworks embedded at every layer to resist manipulation attempts. 
 
 ## Understanding Model Context Protocol (MCP) Security
 
