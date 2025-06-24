@@ -491,8 +491,14 @@ The integration of authentication, authorization, input validation, sandboxed ex
 As MCP becomes the standard for AI tool integration, the security principles and techniques outlined in this guide will become essential for any organization serious about deploying safe, secure, and reliable AI agent systems.
 
 **Key Resources:**
-- _Model Context Protocol Specification_ - Anthropic
-- _OWASP Top 10 for LLM Applications Security_ - OWASP Foundation  
-- _Secure API Development Guidelines_ - NIST Framework
-- _MCP Security Best Practices_ - Community Documentation
-- _AI Tool Security Frameworks_ - Industry Standards
+- OWASP Gen AI Security: LLM01:2025 Prompt Injectionhttps://genai.owasp.org/llmrisk/llm01-prompt-injection
+- Coralogix AI Blog: Prompt Injection Attacks in LLMshttps://coralogix.com/ai-blog/prompt-injection-attacks-in-llms-what-are-they-and-how-to-prevent-them
+- Hugging Face Blog: Constitutional AI with Open LLMshttps://huggingface.co/blog/constitutional_ai
+- Datadog Blog: Monitoring LLM Prompt Injection Attackshttps://www.datadoghq.com/blog/monitor-llm-prompt-injection-attacks
+- IBM: Protect Against Prompt Injectionhttps://www.ibm.com/think/insights/prevent-prompt-injection
+- NVIDIA Technical Blog: Securing LLM Systems Against Prompt Injectionhttps://developer.nvidia.com/blog/securing-llm-systems-against-prompt-injection
+- HiddenLayer: Prompt Injection Attacks on LLMshttps://hiddenlayer.com/innovation-hub/prompt-injection-attacks-on-llms
+- Tigera: Prompt Injection: Impact, How It Workshttps://www.tigera.io/learn/guides/llm-security/prompt-injection
+- Lakera: Guide to Prompt Injectionhttps://www.lakera.ai/blog/guide-to-prompt-injection
+- Medium: Constitutional AI, Training LLMs using Principleshttps://medium.com/@buildingblocks/paper-review-constituional-ai-training-llms-using-principles-16c68cfffaef
+
