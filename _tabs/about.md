@@ -4,11 +4,13 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-Welcome! I'm **Sjoerd Teunisse**, a Senior Full Stack & Data Science Engineer passionate about **automation**, **artificial intelligence**, and **pushing the boundaries of what's possible**.
+Welcome! I'm **Sjoerd Teunisse**, a 28-year-old Senior Full Stack & Data Science Engineer passionate about **automation**, **artificial intelligence**, and **creating impactful solutions that make a difference**.
 
 ## Who Am I?
 
-Since 2012, I've been working with computers to create software with a strong passion for automation. I'm a **3x founder** and currently serve as a Senior engineer & DS engineer at **CM.com**, where I work on business intelligence, payments systems, and cutting-edge AI solutions.
+Since 2012, I've been working with computers to create software with a strong passion for automation and solving real-world problems through smart, scalable technology. I'm a **3x founder** and currently serve as a Senior engineer & DS engineer at **CM.com**, where I work on business intelligence, payments systems, and cutting-edge AI solutions.
+
+With an **entrepreneurial mindset** and **pragmatic approach** to work, I'm especially driven by enabling data-driven decision making and building solutions that create meaningful impact. Having lived and studied across diverse countries, I bring a **global perspective**, adaptability, and a deep desire to keep learning, exploring, and pushing boundaries.
 
 > Motivated by the idea of endless innovation, I enjoy pushing boundaries and demonstrating what may seem impossible.
 {: .prompt-info }
@@ -32,6 +34,17 @@ Developing a **fully autonomous knowledge platform for robots** that enables rob
 #### Matrix Drip (2023 - 2024)
 One of the world's first **generative AI-powered webshops** where creativity met customization, offering personalized generative art on clothing and accessories.
 
+## Beyond the Code
+
+### 🌍 Global Mindset & Exploration
+My international experience living and studying across diverse countries has shaped my **adaptability** and **global perspective**, enabling me to approach challenges with cultural awareness and creative problem-solving.
+
+### 🏔️ Nature & Inspiration
+I find my greatest inspiration exploring the natural world through:
+- **Adventure Sports**: Hiking, running, skiing, climbing, kite-surfing
+- **Exploration**: Scuba-diving, photography
+- **Outdoor Adventures**: Mountain trails, ocean depths, and everything in between
+
 ## Technical Expertise
 
 ### 🛠️ Core Technologies
@@ -40,8 +53,8 @@ languages:
   - "C#, C++, Java"
   - "Python, JavaScript, Typescript, NodeJS"
   - "SQL, NoSQL"
-databses:
-  - "SQL Server, Postgress, Neo4j"
+databases:
+  - "SQL Server, Postgres, Neo4j"
 frameworks:
   - ".NET Framework"
   - "Angular"
@@ -57,4 +70,5 @@ ai_ml:
   - "MCP, A2A"
   - "NLP, Computer Vision"
   - "Multi-agent systems"
-```
+  - "Prompting"
+  - "Evaluation"
