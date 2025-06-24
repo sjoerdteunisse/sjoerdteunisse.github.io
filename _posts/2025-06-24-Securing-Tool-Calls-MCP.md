@@ -1,4 +1,3 @@
-
 ---
 title: MCP Prevent Malicious Tool for AI Agents
 date: 2025-06-24 19:00:00 +0000
