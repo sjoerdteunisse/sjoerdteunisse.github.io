@@ -1,7 +1,7 @@
 ---
 title: MCP Prevent Malicious Tool for AI Agents
 date: 2025-06-24 19:00:00 +0000
-categories: [AI, Security, MCP]
+categories: [AI, Security]
 tags: [mcp, prompt-injection, mcp-security, ai-safety, tool-security]
 description: Learn how to secure Model Context Protocol (MCP) implementations against prompt injection attacks and malicious tool exploitation. Discover comprehensive security strategies, validation techniques, and practical implementation patterns for safe MCP deployment.
 math: false
