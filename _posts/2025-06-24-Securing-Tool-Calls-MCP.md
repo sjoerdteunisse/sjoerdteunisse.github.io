@@ -1,5 +1,5 @@
 ---
-title: Securing MCP: Guarding Against Prompt Injection and Tool Exploits
+title: Securing MCP - Guarding Against Prompt Injection and Tool Exploits
 date: 2025-06-24 19:00:00 +0000
 categories: [AI, Security]
 tags: [mcp, prompt-injection, mcp-security, ai-safety, tool-security]
