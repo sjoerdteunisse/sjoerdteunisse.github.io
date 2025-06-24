@@ -48,22 +48,26 @@ I find my greatest inspiration exploring the natural world through:
 ## Technical Expertise
 
 ### 🛠️ Core Technologies
-```yaml
+
+
 languages:
   - "C#, C++, Java"
   - "Python, JavaScript, Typescript, NodeJS"
   - "SQL, NoSQL"
-databases:
+
+Databases:
   - "SQL Server, Postgres, Neo4j"
-frameworks:
+
+Frameworks:
   - ".NET Framework"
   - "Angular"
   - "TensorFlow, OpenCV, Spacy"
   - "Scikit-learn, Pandas"
-cloud_devops:
+Cloud_devops:
   - "Linux, K8s, RKE2, Azure"
   - "GitOps, Docker"
   - "Monitoring & Alerting"
+  
 ai_ml:
   - "CNN, RNN, MLN, AF, GAN"
   - "LLMs (Architecture, Scaling, RAG)"
@@ -72,4 +76,3 @@ ai_ml:
   - "Multi-agent systems"
   - "Prompting"
   - "Evaluation"
-```
