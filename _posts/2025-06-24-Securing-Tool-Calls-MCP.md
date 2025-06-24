@@ -479,7 +479,7 @@ The field of MCP security continues to evolve rapidly. Key areas for future deve
 
 **Automated Security Testing**: AI systems that continuously test MCP implementations against emerging attack vectors.
 
-> The future of MCP security lies in systems that are inherently secure by design, with security validation embedded throughout the protocol stack. {: .prompt-tip }
+> The future of MCP security lies in systems that are inherently secure by design, with security validation embedded throughout the protocol stack. 
 
 ## Conclusion
 
