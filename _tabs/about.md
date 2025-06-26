@@ -49,30 +49,30 @@ I find my greatest inspiration exploring the natural world through:
 
 ### 🛠️ Core Technologies
 
-
 languages:
-  - "C#, C++, Java"
-  - "Python, JavaScript, Typescript, NodeJS"
-  - "SQL, NoSQL"
+  - C#, C++, Java
+  - Python, JavaScript, Typescript, NodeJS
+  - SQL, NoSQL
 
 Databases:
-  - "SQL Server, Postgres, Neo4j"
+  - SQL Server, Postgres, Neo4j
 
 Frameworks:
-  - ".NET Framework"
-  - "Angular"
-  - "TensorFlow, OpenCV, Spacy"
-  - "Scikit-learn, Pandas"
+  - .NET Framework
+  - Angular
+  - TensorFlow, OpenCV, Spacy
+  - Scikit-learn, Pandas
+
 Cloud_devops:
-  - "Linux, K8s, RKE2, Azure"
-  - "GitOps, Docker"
-  - "Monitoring & Alerting"
+  - Linux, K8s, RKE2, Azure
+  - GitOps, Docker
+  - Monitoring & Alerting
   
 ai_ml:
-  - "CNN, RNN, MLN, AF, GAN"
-  - "LLMs (Architecture, Scaling, RAG)"
-  - "MCP, A2A"
-  - "NLP, Computer Vision"
-  - "Multi-agent systems"
-  - "Prompting"
-  - "Evaluation"
+  - CNN, RNN, MLN, AF, GAN
+  - LLMs (Architecture, Scaling, RAG)
+  - MCP, A2A
+  - NLP, Computer Vision
+  - Multi-agent systems
+  - Prompting
+  - Evaluation
