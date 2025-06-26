@@ -15,9 +15,6 @@ Welcome to my corner of the internet! I'm excited to share this digital space wi
 
 I'm **Sjoerd Teunisse**, a passionate software engineer, AI enthusiast, and eternal learner. This blog represents a new chapter in my journey to **share knowledge**, **document discoveries**, and **connect with fellow developers** and tech enthusiasts around the world.
 
-> Every expert was once a beginner. Every pro was once an amateur. Every icon was once an unknown.
-{: .prompt-tip }
-
 ## What You Can Expect
 
 This blog will be your go-to resource for:
@@ -25,7 +22,7 @@ This blog will be your go-to resource for:
 ### 🤖 AI & Machine Learning
 - **Deep dives** into the latest AI technologies
 - **Practical tutorials** on implementing ML solutions
-- **Research insights** from my work in AGI and multi-agent systems
+- **Research insights** from my work in Knowledge Graphs resaerch and multi-agent systems
 - **Real-world applications** of AI in enterprise environments
 
 ### 💻 Software Development
