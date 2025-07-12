@@ -11,6 +11,7 @@ description: Welcome to my blog! This is my first post where I introduce myself,
 
 Welcome to my corner of the internet! I'm excited to share this digital space with you, and what better way to start than with the classic "Hello World" that every developer knows and loves.
 
+
 ## Who Am I?
 
 I'm **Sjoerd Teunisse**, a passionate software engineer, AI enthusiast, and eternal learner. This blog represents a new chapter in my journey to **share knowledge**, **document discoveries**, and **connect with fellow developers** and tech enthusiasts around the world.
