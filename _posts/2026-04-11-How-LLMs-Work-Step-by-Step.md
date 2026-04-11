@@ -133,6 +133,68 @@ The model compares queries and keys, creates attention scores, and uses those sc
 
 That sounds abstract, but the intuition is simple: **the model learns where to look before deciding what comes next**.
 
+### A Practical Way to Think About Q, K, and V
+
+Imagine you are reading this sentence:
+
+`The animal didn't cross the street because it was tired.`
+
+Now focus on the token `it`.
+
+- The **query** from `it` is like asking: "Which earlier token tells me what `it` refers to?"
+- The **keys** from other tokens are like labels saying: "I might be relevant for that question."
+- The **values** are the actual information the model can pull in if a token is selected as useful.
+
+| Token | Query / key intuition | Value intuition |
+|---|---|---|
+| `animal` | "Could be the thing that was tired" | carries the concept of the animal |
+| `street` | "A noun, but less likely to be tired" | carries the concept of the street |
+| `tired` | "Important clue about the relationship" | carries the state being described |
+
+The model does not literally use English questions in its head, but this is a good practical mental model:
+
+1. the current token asks what it needs
+2. all earlier tokens advertise what they contain
+3. attention scores decide who is most relevant
+4. the selected information is blended back into the current token representation
+
+```mermaid
+flowchart LR
+    A["Current token: it"] --> B["Query: what does 'it' refer to?"]
+    C["animal<br/>Key: likely match<br/>Value: animal meaning"] --> F[Attention weighting]
+    D["street<br/>Key: weaker match<br/>Value: street meaning"] --> F
+    E["tired<br/>Key: useful clue<br/>Value: state information"] --> F
+    B --> F
+    F --> G["Updated representation of 'it'"]
+```
+
+So **QKV is not three mysterious extra concepts**. It is the mechanism that lets a token search the context, score what matters, and pull back the useful information.
+
+### Attention Heads Are Parallel Viewpoints
+
+A transformer layer does not do attention just once. It usually does it many times in parallel using **attention heads**.
+
+You can think of each head as a different lens over the same sentence:
+
+- one head may focus on pronouns and references
+- another may focus on nearby grammar
+- another may focus on long-range relationships
+- another may focus on important recent tokens
+
+```mermaid
+flowchart TD
+    A["The animal didn't cross the street because it was tired."] --> B[Head 1<br/>pronoun resolution]
+    A --> C[Head 2<br/>syntax / grammar]
+    A --> D[Head 3<br/>long-range dependency]
+    A --> E[Head 4<br/>recent-token focus]
+    B --> F[Combined result]
+    C --> F
+    D --> F
+    E --> F
+```
+
+This matters because language has many patterns happening at once. A single attention map would be too limited. Multiple heads let the model look for several kinds of relationships in parallel before combining them.
+
 ## Step 5: Many Layers Build Richer Context
 
 One transformer layer is useful. Dozens of layers are powerful.
@@ -159,7 +221,73 @@ flowchart TD
 
 By the end of the stack, the model has a context-aware representation of the full prompt so far.
 
-## Step 6: The Model Predicts the Next Token
+## Step 6: Context Is the Model's Working Memory
+
+The word **context** means all the tokens the model can currently see and use when producing the next token.
+
+That includes things like:
+
+- your current prompt
+- earlier parts of the conversation
+- system instructions
+- examples you included
+- the tokens the model has already generated
+
+If a fact is inside the context window, the model can attend to it. If it falls outside the window, it is effectively gone for that generation step.
+
+```mermaid
+flowchart LR
+    A[System instruction] --> E[Current context window]
+    B[Earlier conversation] --> E
+    C[Your latest prompt] --> E
+    D[Generated tokens so far] --> E
+    E --> F[Next-token prediction]
+```
+
+### Why Context Matters So Much
+
+An LLM can look smart or confused depending on the quality of its context.
+
+For example, compare these two prompts:
+
+| Prompt style | Likely outcome |
+|---|---|
+| `Write a summary.` | generic answer because the task is underspecified |
+| `Write a 3-bullet summary of this meeting for an executive audience. Focus on risks and deadlines.` | much better answer because the model has clearer context |
+
+Context matters because it tells the model:
+
+- what task you want
+- what information is relevant
+- what tone and format to use
+- which facts should outweigh general world knowledge
+
+In practice, this is why prompt quality matters so much. You are not just "asking a question." You are **constructing the working memory** the model will use.
+
+### Context Placement Matters Too
+
+Even when information is present, placement can affect how reliably the model uses it.
+
+```mermaid
+flowchart LR
+    A[Beginning of context<br/>high-level instructions] --> D[Model processing]
+    B[Middle of context<br/>supporting details] --> D
+    C[End of context<br/>latest user request] --> D
+```
+
+Practical implications:
+
+- important instructions should be explicit
+- critical facts should not be buried in irrelevant text
+- long prompts can dilute what matters most
+- losing key details from the context window can reduce answer quality fast
+
+So when people say an LLM is "bad at context," they often mean one of two things:
+
+1. the needed information was never included clearly
+2. the information was included, but it was too far away, too noisy, or outside the context window
+
+## Step 7: The Model Predicts the Next Token
 
 Once the final layer finishes, the model produces a score for every possible token in its vocabulary. These scores are converted into probabilities.
 
@@ -188,7 +316,7 @@ flowchart LR
 
 This is why LLMs are often described as **next-token predictors**.
 
-## Step 7: Generation Is a Loop
+## Step 8: Generation Is a Loop
 
 The newly chosen token is added to the response, and then the whole process runs again with the updated context.
 
@@ -205,7 +333,7 @@ flowchart TD
 
 If the next token is ` Paris`, the model then predicts the next token after that. Maybe it adds a period. Maybe it continues with an explanation. The response grows one step at a time.
 
-## Step 8: How the Model Learns During Training
+## Step 9: How the Model Learns During Training
 
 So far we described **inference**, which is what happens when you use the model. But where did the model get these abilities?
 
@@ -237,7 +365,7 @@ Over time, the model learns:
 
 It does **not** memorize everything perfectly, and it does not learn truth in the same way a human does. It learns statistical patterns from text.
 
-## Step 9: Why LLMs Sometimes Fail
+## Step 10: Why LLMs Sometimes Fail
 
 This step-by-step view also explains common limitations.
 
@@ -267,10 +395,11 @@ LLMs feel magical because they produce fluent language, but their workflow is st
 
 1. tokenize
 2. embed
-3. attend
-4. transform
-5. predict
-6. repeat
+3. attend with QKV
+4. build context
+5. transform
+6. predict
+7. repeat
 
 Once you understand those steps, the black box becomes much less mysterious.
 
