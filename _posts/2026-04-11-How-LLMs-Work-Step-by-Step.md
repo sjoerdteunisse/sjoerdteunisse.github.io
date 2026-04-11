@@ -299,9 +299,9 @@ the model might assign probabilities like this:
 
 | Candidate token | Example probability |
 |---|---:|
-| ` Paris` | 0.91 |
-| ` Lyon` | 0.03 |
-| ` London` | 0.01 |
+| <code>&nbsp;Paris</code> | 0.91 |
+| <code>&nbsp;Lyon</code> | 0.03 |
+| <code>&nbsp;London</code> | 0.01 |
 | something else | 0.05 |
 
 Then the system chooses a token. Sometimes it chooses the highest-probability token. Sometimes it samples more creatively from the top options.
