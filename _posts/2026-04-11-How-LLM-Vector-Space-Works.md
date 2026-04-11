@@ -1,6 +1,6 @@
 ---
 title: How LLM Vector Space Works - Why Meaning Becomes Geometry
-date: 2026-04-11 21:00:00 +0000
+date: 2026-04-11 20:00:00 +0000
 categories: [AI, LLMs, Education]
 tags: [llm, vector-space, embeddings, semantics, transformers]
 description: An in-depth visual guide to how LLM vector spaces work, why related meanings end up near each other, and what real research shows about semantic structure in embeddings.
