@@ -67,11 +67,48 @@ flowchart TD
 > An LLM never sees your input as plain language first. It sees a sequence of tokens that can be mapped to numbers.
 {: .prompt-tip }
 
+### Why tokens are numbers
+
+All computation inside a neural network is arithmetic — additions, multiplications, and comparisons of numbers. There is no built-in way to do math on the text ` language` directly, so every token must be assigned an integer ID from the model's vocabulary. For example, the token ` language` might be assigned the ID `4221`.
+
+Those integer IDs are then used to look up a learned vector (a row of floating-point numbers) that the model can actually compute with. The raw integer IDs themselves are just dictionary keys; the real numerical work starts in the embedding step.
+
+### Why words are split into pieces
+
+You might expect a simple word-by-word split. Two problems make that impractical:
+
+1. **Vocabulary explosion.** English alone contains hundreds of thousands of words, and the model also needs to handle technical terms, names, multiple languages, and misspellings. A vocabulary that large would be slow and expensive to maintain.
+2. **Unknown words.** A model trained on a fixed word list cannot handle any word that was not in that list. New words, rare surnames, and code snippets would all be silently broken.
+
+Subword tokenization solves both problems. Common words stay intact as a single token. Rare or unseen words are decomposed into smaller pieces that *are* in the vocabulary.
+
+For example, the word `unhappiness` might become `un` + `happiness`, and a rare word like `decarbonisation` might become `de` + `carbon` + `is` + `ation`. Each piece is a valid token, so the model can still process it — even if it has never seen the full word before.
+
+| Word | Tokens (example) | Reason |
+|---|---|---|
+| `running` | `running` | common enough to be one token |
+| `unhappiness` | `un`, `happiness` | assembled from known sub-pieces |
+| `decarbonisation` | `de`, `carbon`, `is`, `ation` | rare word, broken into frequent parts |
+| `ChatGPT3` | `Chat`, `G`, `PT`, `3` | mixed-case proper noun split at boundaries |
+
+This is why LLMs sometimes appear to "miscount" letters in a word — they process tokens, which can each represent multiple characters, rather than individual characters. Character-level operations like counting or reversing a word require the model to reconstruct the original string from its tokens, which is an indirect and error-prone process.
+
 ## Step 2: Tokens Become Vectors
 
 Once text is tokenized, each token is turned into a vector: a list of numbers that represents it in a mathematical space. This is called an **embedding**.
 
-Tokens with related meanings often end up with embeddings that are closer together in that space. The model also adds **positional information**, because word order matters.
+### Why vectors are needed
+
+At the end of Step 1, each token is just an integer ID — a dictionary lookup key. The number `4221` by itself carries no meaning. The model cannot learn that `cat` and `kitten` are related just from their IDs being `2053` and `18789`.
+
+An embedding converts each ID into a dense list of numbers (typically hundreds to thousands of floating-point values). These numbers are learned during training, and they encode *relationships*. After training, tokens with related meanings end up with embeddings that are geometrically close to each other in that high-dimensional space:
+
+- `cat` and `kitten` will have similar vectors
+- `France` and `Paris` will have a specific directional relationship similar to `Germany` → `Berlin`
+
+This means the rest of the network can do meaningful arithmetic on the representations, rather than treating every token as an arbitrary unrelated symbol.
+
+The model also adds **positional information** to each embedding, because word order matters.
 
 Without position, these two sentences would look too similar:
 
@@ -80,12 +117,12 @@ Without position, these two sentences would look too similar:
 
 ```mermaid
 flowchart LR
-    A[Tokens] --> B[Token embeddings]
-    B --> C[Add positional information]
+    A[Token IDs] --> B[Embedding lookup<br/>ID → dense vector]
+    B --> C[Add positional encoding<br/>encode order in context]
     C --> D[Vectors ready for the transformer]
 ```
 
-So at this stage, the model has not "understood" the sentence yet. It has only converted tokens into structured numerical input.
+So at this stage, the model has not "understood" the sentence yet. It has only converted tokens into structured numerical input that preserves both meaning and position.
 
 ## Step 3: The Transformer Builds Meaning
 
@@ -102,6 +139,12 @@ flowchart TD
     B --> C[Feed-forward network]
     C --> D[Updated vectors]
 ```
+
+### What the feed-forward network actually does
+
+After attention blends together information from across the context, the feed-forward network (FFN) processes each token's representation *independently* — as if it were asking "given everything attention just told me about this token, what should I know about it?"
+
+During training, the FFN layers absorb a large amount of factual and linguistic knowledge. Researchers have found that factual associations (for example, knowing that Paris is the capital of France) are largely stored in the FFN weights. The attention mechanism finds contextual relationships between tokens; the FFN transforms each token's individual representation using those learned patterns and associations.
 
 After one layer, the model has a slightly better representation. After many layers, it has a much richer one.
 
@@ -198,6 +241,12 @@ This matters because language has many patterns happening at once. A single atte
 ## Step 5: Many Layers Build Richer Context
 
 One transformer layer is useful. Dozens of layers are powerful.
+
+### Why so many layers?
+
+Each layer can only do a limited amount of work. It runs one round of attention and one feed-forward pass. That is enough to refine the representation slightly, but not enough to go from raw tokens all the way to deep semantic understanding in one shot.
+
+Stacking many layers is how the model builds up complexity progressively. Think of it like a team of editors, each reading the document and adding annotations before passing it on. The first editor notices basic grammar. Later editors notice logical structure, tone, and implication.
 
 Early layers often capture simpler patterns:
 
