@@ -1,6 +1,6 @@
 ---
 title: Why LLMs Plateau Without Grounding, Interaction, and Consequences
-date: 2026-04-19 12:00:00 +0000
+date: 2026-04-19
 categories: [AI, LLMs, Education]
 tags: [llm, grounding, world-models, embodiment, robotics]
 description: A research-based report on why text-only language models can hit capability plateaus, why they do not directly perceive or act in the world, and why many researchers argue that interaction data matters.
