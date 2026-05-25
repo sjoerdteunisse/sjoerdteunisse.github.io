@@ -1,6 +1,6 @@
 ---
 title: Data Science Fundamentals for Engineers - From Problem Framing to Production
-date: 2026-05-25 08:30:00 +0000
+date: 2026-05-25 08:00:00 +0000
 categories: [Data Science, Engineering, Education]
 tags: [data-science, machine-learning, analytics, model-evaluation, engineering]
 description: A practical introduction to the full data science lifecycle for engineers, with examples covering problem framing, data preparation, model evaluation, deployment, and monitoring.
