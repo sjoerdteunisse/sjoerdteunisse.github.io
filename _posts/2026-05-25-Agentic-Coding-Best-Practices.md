@@ -1,6 +1,6 @@
 ---
 title: Agentic Coding Best Practices - RTCCO, Manual TDD, and Security Guardrails
-date: 2026-05-25 09:00:00 +0000
+date: 2026-05-25 07:00:00 +0000
 categories: [AI, Agents, Engineering]
 tags: [agentic-coding, rtcco, prompt-engineering, tdd, ai-security]
 description: A practical guide to agentic coding best practices, from structuring prompts with RTCCO to using manual TDD, surfacing edge cases, and validating security with AI agents.
