@@ -1,6 +1,6 @@
 ---
 title: Claude Code Best Practices - Context, Planning, and Review Loops
-date: 2026-05-25 08:15:00 +0000
+date: 2026-05-25 07:15:00 +0000
 categories: [AI, Agents, Engineering]
 tags: [claude-code, agentic-coding, prompt-engineering, code-review, developer-workflows]
 description: A practical guide to using Claude Code effectively, with research-backed tips on plan mode, context limits, CLAUDE.md, subagents, and review loops.
